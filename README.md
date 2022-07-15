@@ -2,9 +2,10 @@
 
 This is an extension to make it easier to develop with Apex mocks by providing useful code snippets.
 
-https://github.com/apex-enterprise-patterns/fflib-apex-mocks
+<https://github.com/apex-enterprise-patterns/fflib-apex-mocks>
 
 ## Snippets
+
 Where there are blanks - the snippet will default the cursor to populate
 If there are multiple gaps, after populating the first empty, pressing tab will take the cursor to
 the next slot.
@@ -91,7 +92,7 @@ fflib_ApexMocks  = new fflib_ApexMocks();
 
 ```java
 fflib_ArgumentCaptor serviceParmsCaptor = fflib_ArgumentCaptor.forClass(
-	.class
+    .class
 );
 ```
 
