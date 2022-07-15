@@ -8,7 +8,7 @@
     },
     "version": "1.0.1",
     "publisher": "BinaryVision",
-    "icon": "./apex-mocks-snippets.png",
+    "icon": "apex-mocks-snippets.png",
     "engines": {
         "vscode": "^1.69.0"
     },

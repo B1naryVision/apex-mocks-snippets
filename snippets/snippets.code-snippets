@@ -88,7 +88,7 @@
     "Create Mock": {
         "prefix": "create-mock",
         "description": "Create Mock statement",
-        "body": ["$1 mockService = ($1) $2.mock($1.class)"]
+        "body": ["$1 mockService = ($1) $2.mock($1.class);"]
     },
     "Do Throw When": {
         "prefix": "doThrowWhen",
@@ -122,7 +122,7 @@
         ]
     },
     "Run As": {
-        "prefix": "run-as",
+        "prefix": "runAs",
         "description": "runAs Statement",
         "body": ["System.runAs($1) {", "", "}"]
     },
