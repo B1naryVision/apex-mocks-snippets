@@ -1,0 +1,140 @@
+{
+    "Unit Test": {
+        "prefix": "unit-test",
+        "description": "Apex Unit Test",
+        "body": [
+            "@IsTest(isParallel=true)",
+            "class $1 {",
+            "    @IsTest",
+            "    public static void methodUnderTest_changes_expectedResult() {",
+            "        Test.startTest();",
+            "        Test.stopTest();",
+            "    }",
+            "}"
+        ]
+    },
+    "Test Case": {
+        "prefix": "test-case",
+        "description": "Apex Test Case",
+        "body": [
+            "@isTest",
+            "public static void methodUnderTest_changes_expectedResult() {",
+            "    Test.startTest();",
+            "    Test.stopTest();",
+            "}"
+        ]
+    },
+    "Answer": {
+        "prefix": "answer",
+        "description": "Creates a fflib_Answer definition",
+        "body": [
+            "private with sharing class $1Answer implements fflib_Answer {",
+            "    public $1Answer() {}",
+
+            "    public Object answer(fflib_InvocationOnMock invocation) {",
+            "        ArgumentType argumentOne = (ArgumentType) invocation.getArgument(0);",
+            "",
+            "        return null;",
+            "    }",
+            "}"
+        ]
+    },
+    "Assert Equals": {
+        "prefix": "asserte",
+        "description": "Assert Equals",
+        "body": ["System.assertEquals($1, $2, $3);"]
+    },
+    "Assert": {
+        "prefix": "assert",
+        "description": "Assert",
+        "body": ["System.assert($1, $2);"]
+    },
+    "Start Stubbing": {
+        "prefix": "startStubbing",
+        "body": ["$1.startStubbing();", "", "$1.stopStubbing();"],
+        "description": "Start/Stop stubbing statement"
+    },
+    "Start Test": {
+        "prefix": "startTest",
+        "description": "Start/Stop test statement",
+        "body": ["Test.startTest();", "", "Test.stopTest();"]
+    },
+    "Instantiate Mock Builder": {
+        "prefix": "create-mock-builder",
+        "description": "Create Mock Builder",
+        "body": ["fflib_ApexMocks $1 = new fflib_ApexMocks();"]
+    },
+    "Argument Captor": {
+        "prefix": "argumentCaptor",
+        "description": "Creates an argument captor",
+        "body": [
+            "fflib_ArgumentCaptor serviceParmsCaptor = fflib_ArgumentCaptor.forClass(",
+            "    $1.class",
+            ");"
+        ]
+    },
+    "Capture Argument": {
+        "prefix": "capture-argument",
+        "description": "Creates a capture argument statement",
+        "body": ["(Type) $1.capture()"]
+    },
+    "Verify Calls": {
+        "prefix": "verify-calls",
+        "description": "Creates a verify statement",
+        "body": [
+            "((Service) $1.verify(serviceToMock, 1)).methodName((ArgumentType) fflib_Match.anyObject());"
+        ]
+    },
+    "Create Mock": {
+        "prefix": "create-mock",
+        "description": "Create Mock statement",
+        "body": ["$1 mockService = ($1) $2.mock($1.class)"]
+    },
+    "Do Throw When": {
+        "prefix": "doThrowWhen",
+        "description": "Do throw when statement",
+        "body": [
+            "((ServiceType) $1.doThrowWhen(",
+            "    new TestException('Splat!'),",
+            "    mockService",
+            "))",
+            ".methodName((ArgumentType) fflib_Match.anyObject());"
+        ]
+    },
+    "Then Return": {
+        "prefix": "thenReturn",
+        "description": "Creates a thenReturn statement",
+        "body": [
+            "$1.when(",
+            "    mockService.methodName((ArgumentType) fflib_Match.anyObject())",
+            ")",
+            ".thenReturn(mockResult);"
+        ]
+    },
+    "Then Answer": {
+        "prefix": "thenAnswer",
+        "description": "Creates a thenAnswer statement",
+        "body": [
+            "$1.when(",
+            "    mockService.methodName((ArgumentType) fflib_Match.anyObject())",
+            ")",
+            ".thenAnswer(answerInstance);"
+        ]
+    },
+    "Run As": {
+        "prefix": "run-as",
+        "description": "runAs Statement",
+        "body": ["System.runAs($1) {", "", "}"]
+    },
+    "fflib Assert Equals": {
+        "prefix": "fflib-asserte",
+        "description": "fflib Assert Equals statement",
+        "body": [
+            "fflib_System.assertEquals(",
+            "fflib_Match.$1(),",
+            "$2,",
+            "$3",
+            ");"
+        ]
+    }
+}

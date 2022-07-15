@@ -1,0 +1,26 @@
+{
+    "name": "apex-mocks-snippets",
+    "displayName": "Apex Mocks Snippets",
+    "description": "Provides useful code snippets when developing with Apex Mocks",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/B1naryVision/apex-mocks-snippets.git"
+    },
+    "version": "1.0.1",
+    "publisher": "BinaryVision",
+    "icon": "./apex-mocks-snippets.png",
+    "engines": {
+        "vscode": "^1.69.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "apex",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    }
+}
