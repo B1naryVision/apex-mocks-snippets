@@ -15,6 +15,14 @@
     "categories": [
         "Snippets"
     ],
+    "keywords": [
+        "apex",
+        "mocks",
+        "mock",
+        "fflib",
+        "snippet",
+        "snippets"
+    ],
     "contributes": {
         "snippets": [
             {
