@@ -4,7 +4,7 @@
         "description": "Apex Unit Test",
         "body": [
             "@IsTest(isParallel=true)",
-            "class $1 {",
+            "class $TM_FILENAME_BASE$1 {",
             "    @IsTest",
             "    public static void methodUnderTest_changes_expectedResult() {",
             "        Test.startTest();",
