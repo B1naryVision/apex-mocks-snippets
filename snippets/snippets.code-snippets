@@ -51,7 +51,11 @@
     },
     "Start Stubbing": {
         "prefix": "startStubbing",
-        "body": ["$1.startStubbing();", "", "$1.stopStubbing();"],
+        "body": [
+            "${1:APEX_MOCKS}.startStubbing();",
+            "",
+            "${1:APEX_MOCKS}.stopStubbing();"
+        ],
         "description": "Start/Stop stubbing statement"
     },
     "Start Test": {
@@ -62,7 +66,7 @@
     "Instantiate Mock Builder": {
         "prefix": "create-mock-builder",
         "description": "Create Mock Builder",
-        "body": ["fflib_ApexMocks $1 = new fflib_ApexMocks();"]
+        "body": ["fflib_ApexMocks ${1:APEX_MOCKS} = new fflib_ApexMocks();"]
     },
     "Argument Captor": {
         "prefix": "argumentCaptor",
@@ -82,19 +86,19 @@
         "prefix": "verify-calls",
         "description": "Creates a verify statement",
         "body": [
-            "((Service) $1.verify(serviceToMock, 1)).methodName((ArgumentType) fflib_Match.anyObject());"
+            "((Service) ${1:APEX_MOCKS}.verify(serviceToMock, 1)).methodName((ArgumentType) fflib_Match.anyObject());"
         ]
     },
     "Create Mock": {
         "prefix": "create-mock",
         "description": "Create Mock statement",
-        "body": ["$1 mockService = ($1) $2.mock($1.class);"]
+        "body": ["$1 mockService = ($1) ${2:APEX_MOCKS}.mock($1.class);"]
     },
     "Do Throw When": {
         "prefix": "doThrowWhen",
         "description": "Do throw when statement",
         "body": [
-            "((ServiceType) $1.doThrowWhen(",
+            "((ServiceType) ${1:APEX_MOCKS}.doThrowWhen(",
             "    new TestException('Splat!'),",
             "    mockService",
             "))",
@@ -105,7 +109,7 @@
         "prefix": "thenReturn",
         "description": "Creates a thenReturn statement",
         "body": [
-            "$1.when(",
+            "${1:APEX_MOCKS}.when(",
             "    mockService.methodName((ArgumentType) fflib_Match.anyObject())",
             ")",
             ".thenReturn(mockResult);"
@@ -115,7 +119,7 @@
         "prefix": "thenAnswer",
         "description": "Creates a thenAnswer statement",
         "body": [
-            "$1.when(",
+            "${1:APEX_MOCKS}.when(",
             "    mockService.methodName((ArgumentType) fflib_Match.anyObject())",
             ")",
             ".thenAnswer(answerInstance);"
@@ -136,5 +140,10 @@
             "$3",
             ");"
         ]
+    },
+    "Generate Id": {
+        "prefix": "generate-id",
+        "description": "Generates a fake ID for object",
+        "body": ["fflib_IDGenerator.generate($1.SObjectType);"]
     }
 }
