@@ -12,11 +12,14 @@ the next slot.
 
 ![Apex Mocks Example](apex-mocks-example.gif)
 
+APEX_MOCKS is provided as a default name for the Mock Builder but will be highlighted by default
+and will be overridable immediately.
+
 ### unit-test
 
 ```java
 @IsTest(isParallel=true)
-class  {
+class Classname {
     @IsTest
     public static void methodUnderTest_changes_expectedResult() {
         Test.startTest();
@@ -69,9 +72,9 @@ fflib_System.assertEquals(fflib_Match.(), ,);
 ### startStubbing
 
 ```java
-.startStubbing();
+APEX_MOCKS.startStubbing();
 
-.stopStubbing();
+APEX_MOCKS.stopStubbing();
 ```
 
 ### startTest
@@ -85,7 +88,7 @@ Test.stopTest();
 ### create-mock-builder
 
 ```java
-fflib_ApexMocks  = new fflib_ApexMocks();
+fflib_ApexMocks APEX_MOCKS = new fflib_ApexMocks();
 ```
 
 ### argumentCaptor
@@ -105,19 +108,19 @@ fflib_ArgumentCaptor serviceParmsCaptor = fflib_ArgumentCaptor.forClass(
 ### verify-calls
 
 ```java
-((Service) .verify(serviceToMock, 1)).methodName((ArgumentType) fflib_Match.anyObject());
+((Service) APEX_MOCKS.verify(serviceToMock, 1)).methodName((ArgumentType) fflib_Match.anyObject());
 ```
 
 ### create-mock
 
 ```java
-mockService = () .mock(.class)
+mockService = () APEX_MOCKS.mock(.class)
 ```
 
 ### doThrowWhen
 
 ```java
-((ServiceType) .doThrowWhen(
+((ServiceType) APEX_MOCKS.doThrowWhen(
     new TestException('Splat!'),
     mockService
 ))
@@ -127,7 +130,7 @@ mockService = () .mock(.class)
 ### thenReturn
 
 ```java
-.when(
+APEX_MOCKS.when(
     mockService.methodName((ArgumentType) fflib_Match.anyObject())
 )
 .thenReturn(mockResult);
@@ -136,7 +139,7 @@ mockService = () .mock(.class)
 ### thenAnswer
 
 ```java
-.when(
+APEX_MOCKS.when(
     mockService.methodName((ArgumentType) fflib_Match.anyObject())
 )
 .thenAnswer(answerInstance);
