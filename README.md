@@ -19,7 +19,7 @@ and will be overridable immediately.
 
 ```java
 @IsTest(isParallel=true)
-class Classname {
+class Filename {
     @IsTest
     public static void methodUnderTest_changes_expectedResult() {
         Test.startTest();
