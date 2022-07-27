@@ -6,8 +6,8 @@ This is an extension to make it easier to develop with Apex mocks by providing u
 
 ## Snippets
 
-Where there are blanks - the snippet will default the cursor to populate
-If there are multiple gaps, after populating the first empty, pressing tab will take the cursor to
+Where there are blanks - the snippet will default the cursor to populate the blank.
+If there are multiple blanks, after populating the first one, pressing tab will take the cursor to
 the next slot.
 
 ![Apex Mocks Example](apex-mocks-example.gif)
