@@ -30,7 +30,6 @@
         "body": [
             "private with sharing class $1Answer implements fflib_Answer {",
             "    public $1Answer() {}",
-
             "    public Object answer(fflib_InvocationOnMock invocation) {",
             "        ArgumentType argumentOne = (ArgumentType) invocation.getArgument(0);",
             "",
@@ -42,12 +41,30 @@
     "Assert Equals": {
         "prefix": "asserte",
         "description": "Assert Equals",
-        "body": ["System.assertEquals($1, $2, $3);"]
+        "body": [
+            "Assert.areEqual($1, $2, $3);"
+        ]
     },
     "Assert": {
         "prefix": "assert",
         "description": "Assert",
-        "body": ["System.assert($1, $2);"]
+        "body": [
+            "Assert.isTrue($1, $2);"
+        ]
+    },
+    "Assert Instance of": {
+        "prefix": "asserti",
+        "description": "Assert instance of type",
+        "body": [
+            "Assert.isInstanceOfType($1, $2.class, $3);"
+        ]
+    },
+    "Assert null": {
+        "prefix": "assertn",
+        "description": "Assert value is null",
+        "body": [
+            "Assert.isNull($1, $2);"
+        ]
     },
     "Start Stubbing": {
         "prefix": "startStubbing",
@@ -61,12 +78,18 @@
     "Start Test": {
         "prefix": "startTest",
         "description": "Start/Stop test statement",
-        "body": ["Test.startTest();", "", "Test.stopTest();"]
+        "body": [
+            "Test.startTest();",
+            "",
+            "Test.stopTest();"
+        ]
     },
     "Instantiate Mock Builder": {
         "prefix": "create-mock-builder",
         "description": "Create Mock Builder",
-        "body": ["fflib_ApexMocks ${1:APEX_MOCKS} = new fflib_ApexMocks();"]
+        "body": [
+            "fflib_ApexMocks ${1:APEX_MOCKS} = new fflib_ApexMocks();"
+        ]
     },
     "Argument Captor": {
         "prefix": "argumentCaptor",
@@ -80,7 +103,9 @@
     "Capture Argument": {
         "prefix": "capture-argument",
         "description": "Creates a capture argument statement",
-        "body": ["(Type) $1.capture()"]
+        "body": [
+            "(Type) $1.capture()"
+        ]
     },
     "Verify Calls": {
         "prefix": "verify-calls",
@@ -92,7 +117,9 @@
     "Create Mock": {
         "prefix": "create-mock",
         "description": "Create Mock statement",
-        "body": ["$1 mockService = ($1) ${2:APEX_MOCKS}.mock($1.class);"]
+        "body": [
+            "$1 mockService = ($1) ${2:APEX_MOCKS}.mock($1.class);"
+        ]
     },
     "Do Throw When": {
         "prefix": "doThrowWhen",
@@ -128,7 +155,11 @@
     "Run As": {
         "prefix": "runAs",
         "description": "runAs Statement",
-        "body": ["System.runAs($1) {", "", "}"]
+        "body": [
+            "System.runAs($1) {",
+            "",
+            "}"
+        ]
     },
     "fflib Assert Equals": {
         "prefix": "fflib-asserte",
@@ -144,6 +175,8 @@
     "Generate Id": {
         "prefix": "generate-id",
         "description": "Generates a fake ID for object",
-        "body": ["fflib_IDGenerator.generate($1.SObjectType)"]
+        "body": [
+            "fflib_IDGenerator.generate($1.SObjectType)"
+        ]
     }
 }
