@@ -144,6 +144,6 @@
     "Generate Id": {
         "prefix": "generate-id",
         "description": "Generates a fake ID for object",
-        "body": ["fflib_IDGenerator.generate($1.SObjectType);"]
+        "body": ["fflib_IDGenerator.generate($1.SObjectType)"]
     }
 }
