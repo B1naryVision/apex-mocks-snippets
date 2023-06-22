@@ -95,7 +95,7 @@
         "prefix": "argumentCaptor",
         "description": "Creates an argument captor",
         "body": [
-            "fflib_ArgumentCaptor serviceParmsCaptor = fflib_ArgumentCaptor.forClass(",
+            "fflib_ArgumentCaptor argCaptor = fflib_ArgumentCaptor.forClass(",
             "    $1.class",
             ");"
         ]
@@ -104,7 +104,7 @@
         "prefix": "capture-argument",
         "description": "Creates a capture argument statement",
         "body": [
-            "(Type) $1.capture()"
+            "(Type) ${1:argCaptor}.capture()"
         ]
     },
     "Verify Calls": {
