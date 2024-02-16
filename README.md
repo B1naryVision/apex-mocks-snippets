@@ -54,13 +54,25 @@ private with sharing class Answer implements fflib_Answer {
 ### asserte
 
 ```java
-System.assertEquals(, , );
+Assert.areEqual(, , );
+```
+
+### asserti
+
+```java
+Assert.isInstanceOfType(, .class, );
+```
+
+### assertn
+
+```java
+Assert.isNull(, );
 ```
 
 ### assert
 
 ```java
-System.assert(, );
+Assert.isTrue(, );
 ```
 
 ### fflib-asserte
